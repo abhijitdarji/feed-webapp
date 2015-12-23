@@ -1,0 +1,45 @@
+md-content {
+    background-color: transparent !important;
+}
+
+md-content md-tabs {
+    border: 1px solid #e1e1e1;
+}
+
+md-content md-tabs md-tab-content {
+    background: #f6f6f6;
+}
+
+md-content md-tabs md-tabs-wrapper {
+    background: white;
+}
+
+md-content h1:first-child {
+    margin-top: 0;
+}
+
+md-input-container {
+    padding-bottom: 0;
+}
+
+.demo-tab > div > div {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+md-tabs {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    height: 93vh;
+}
+
+md-tab[disabled] {
+    opacity: 0.5;
+}
+
+label {
+    text-align: left;
+}
+
+.md-button.add-tab {
+    transform: translateY(5px);
+}

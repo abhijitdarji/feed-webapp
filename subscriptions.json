@@ -1,0 +1,79 @@
+[
+    {
+        "title": "AddyOsmani",
+        "xmlUrl": "http://feeds.feedburner.com/addyosmani",
+        "htmlUrl": "http://addyosmani.com/blog",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "JohnPapa",
+        "xmlUrl": "http://www.johnpapa.net/feed.xml",
+        "htmlUrl": "http://www.johnpapa.net/",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "JakeArchibald",
+        "xmlUrl": "https://jakearchibald.com/posts.rss",
+        "htmlUrl": "https://jakearchibald.com",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "ScottGu",
+        "xmlUrl": "http://weblogs.asp.net/scottgu/rss?containerid=13",
+        "htmlUrl": "http://weblogs.asp.net:80/scottgu/",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "Bootstrap",
+        "xmlUrl": "http://blog.getbootstrap.com/feed.xml",
+        "htmlUrl": "http://blog.getbootstrap.com/",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "VSCode",
+        "xmlUrl": "http://blogs.msdn.com/b/vscode/rss.aspx",
+        "htmlUrl": "http://blogs.msdn.com/b/vscode/",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "Codrops",
+        "xmlUrl": "http://feeds2.feedburner.com/tympanus",
+        "htmlUrl": "http://tympanus.net/codrops",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "AngularJS",
+        "xmlUrl": "http://blog.angularjs.org/feeds/posts/default",
+        "htmlUrl": "http://angularjs.blogspot.com/",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "GoogleDev",
+        "xmlUrl": "http://code.google.com/feeds/updates.xml",
+        "htmlUrl": "http://googledevelopers.blogspot.com/",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "WindowsBlog",
+        "xmlUrl": "http://blogs.windows.com/feed/",
+        "htmlUrl": "https://blogs.windows.com",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "Channel9",
+        "xmlUrl": "http://channel9.msdn.com/Feeds/RSS",
+        "htmlUrl": "https://channel9.msdn.com/",
+        "content": "",
+        "isLoaded": false
+    }
+]
