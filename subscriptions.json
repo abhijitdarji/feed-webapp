@@ -36,8 +36,8 @@
     },
     {
         "title": "VSCode",
-        "xmlUrl": "http://blogs.msdn.com/b/vscode/rss.aspx",
-        "htmlUrl": "http://blogs.msdn.com/b/vscode/",
+        "xmlUrl": "https://code.visualstudio.com/feed.xml",
+        "htmlUrl": "https://code.visualstudio.com/",
         "content": "",
         "isLoaded": false
     },
@@ -73,6 +73,13 @@
         "title": "Channel9",
         "xmlUrl": "http://channel9.msdn.com/Feeds/RSS",
         "htmlUrl": "https://channel9.msdn.com/",
+        "content": "",
+        "isLoaded": false
+    }
+    {
+        "title": "MicosoftDevBlog",
+        "xmlUrl": "http://sxp.microsoft.com/feeds/3.0/devblogs",
+        "htmlUrl": "",
         "content": "",
         "isLoaded": false
     }
