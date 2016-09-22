@@ -1,12 +1,5 @@
 [
     {
-        "title": "AddyOsmani",
-        "xmlUrl": "http://feeds.feedburner.com/addyosmani",
-        "htmlUrl": "http://addyosmani.com/blog",
-        "content": "",
-        "isLoaded": false
-    },
-    {
         "title": "JohnPapa",
         "xmlUrl": "http://www.johnpapa.net/feed.xml",
         "htmlUrl": "http://www.johnpapa.net/",
@@ -75,9 +68,9 @@
         "htmlUrl": "https://channel9.msdn.com/",
         "content": "",
         "isLoaded": false
-    }
+    },
     {
-        "title": "MicosoftDevBlog",
+        "title": "MicosoftDev",
         "xmlUrl": "http://sxp.microsoft.com/feeds/3.0/devblogs",
         "htmlUrl": "",
         "content": "",
