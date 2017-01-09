@@ -1,45 +1,49 @@
-md-content {
-    background-color: transparent !important;
+/* Styles go here */
+
+/* tab styles */
+
+
+/* list styles */
+#list{
+  background-color:#eee;
 }
 
-md-content md-tabs {
-    border: 1px solid #e1e1e1;
+.md-whiteframe-1dp a {
+  text-decoration: none;
 }
 
-md-content md-tabs md-tab-content {
-    background: #f6f6f6;
+.md-chip-content {
+  font-size: 12px;
 }
 
-md-content md-tabs md-tabs-wrapper {
-    background: white;
+md-chips .md-chips {
+  box-shadow: 0px 0px;
 }
 
-md-content h1:first-child {
-    margin-top: 0;
+.md-chips md-chip {
+  height: 16px;
+  line-height: 16px;
+  border-radius: 8px;
+  margin: 4px 4px 0px 0px;
+  padding: 0px 6px;
 }
 
-md-input-container {
-    padding-bottom: 0;
+.selected {
+  margin-left: -5px;
+  border-left: 5px solid purple;
 }
 
-.demo-tab > div > div {
-    padding: 10px;
-    box-sizing: border-box;
+.fade.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
 }
-
-md-tabs {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    height: 93vh;
+.fade.ng-enter.ng-enter-active {
+  opacity:1;
 }
-
-md-tab[disabled] {
-    opacity: 0.5;
+.fade.ng-leave {
+  transition:0.5s linear all;
+  opacity:1;
 }
-
-label {
-    text-align: left;
-}
-
-.md-button.add-tab {
-    transform: translateY(5px);
+.fade.ng-leave.ng-leave-active {
+  opacity:0;
 }
