@@ -101,6 +101,7 @@
 
 <md-content id="list" flex layout-padding ng-if="vm.mode=='list'">
     <div ng-hide="!vm.tabs[vm.selectedIndex].isLoaded">
+        <h3>{{vm.tabs[vm.selectedIndex].title}}</h3>
         <div class="md-whiteframe-1dp" ng-repeat-start="feed in vm.tabs[vm.selectedIndex].content" ng-click="vm.selectedItem = (vm.selectedItem==null)? $index: null"
             ng-class="{'selected' : vm.selectedItem == $index}">
             <md-content layout-padding>
