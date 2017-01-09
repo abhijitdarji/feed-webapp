@@ -51,17 +51,17 @@
             </md-button>
             <h2>
                 <span>Feed WebApp <md-icon md-font-icon style="color:orange;">rss_feed</md-icon>
-                </span>
-            </h2>
-    <span flex></span>
-    <md-button class="md-icon-button" aria-label="list" ng-click="vm.mode='list'">
-        <md-icon md-font-icon>list</md-icon>
-    </md-button>
-    <md-button class="md-icon-button" aria-label="tab" ng-click="vm.mode='tab'">
-        <md-icon md-font-icon>tab</md-icon>
-    </md-button>
-    </div>
-    </md-toolbar>
+</span>
+</h2>
+<span flex></span>
+<md-button class="md-icon-button" aria-label="list" ng-click="vm.mode='list'">
+    <md-icon md-font-icon>list</md-icon>
+</md-button>
+<md-button class="md-icon-button" aria-label="tab" ng-click="vm.mode='tab'">
+    <md-icon md-font-icon>tab</md-icon>
+</md-button>
+</div>
+</md-toolbar>
 
 <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" ng-if="vm.mode=='list'">
     <md-toolbar class="md-theme-indigo">
@@ -101,6 +101,7 @@
 
 <md-content id="list" flex layout-padding ng-if="vm.mode=='list'">
     <div ng-hide="!vm.tabs[vm.selectedIndex].isLoaded">
+        <h3>{{vm.tabs[vm.selectedIndex].title}}</h3>
         <div class="md-whiteframe-1dp" ng-repeat-start="feed in vm.tabs[vm.selectedIndex].content" ng-click="vm.selectedItem = (vm.selectedItem==null)? $index: null"
             ng-class="{'selected' : vm.selectedItem == $index}">
             <md-content layout-padding>
