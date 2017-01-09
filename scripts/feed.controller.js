@@ -8,13 +8,24 @@
         .module(moduleID)
         .controller(ctrlID, AppCtrl);
 
-    AppCtrl.$inject = ['$log', 'FeedService', '$mdDialog'];
-    function AppCtrl($log, FeedService, $mdDialog) {
+    AppCtrl.$inject = ['$log', 'FeedService', '$mdSidenav', '$timeout', '$mdDialog'];
+
+    function AppCtrl($log, FeedService, $mdSidenav, $timeout, $mdDialog) {
         var vm = this;
 
         vm.msgLoading = 'Loading...';
         vm.postsCount = 10;
         vm.selectedIndex = 0;
+        vm.selectedItem = null;
+        vm.mode = 'list';
+
+        vm.toggleLeft = buildToggler('left');
+
+        function buildToggler(componentId) {
+            return function () {
+                $mdSidenav(componentId).toggle();
+            }
+        }
 
         FeedService.getSubs().success(function (data) {
             vm.tabs = data.sort(function (a, b) {
@@ -25,6 +36,9 @@
         });
 
         vm.loadData = function (tabIndex) {
+
+            vm.selectedIndex = tabIndex;
+            vm.selectedItem = null;
 
             if (vm.tabs[tabIndex].isLoaded) {
                 return;
@@ -46,12 +60,11 @@
                     vm.msgLoading = 'Error loading the data. Please try again.';
                 });
 
-        }//loaddata
-        
+        } //loaddata
+
         vm.showDialog = function (tabIndex, entryIndex) {
             $mdDialog.show({
-                template:
-                '<md-dialog>' +
+                template: '<md-dialog>' +
                 '  <md-toolbar class="md-warn">' +
                 '       <div class="md-toolbar-tools">' +
                 '           <h2>More...</h2>' +
@@ -76,9 +89,13 @@
                     };
                 }],
                 controllerAs: 'dm',
-                locals: { content: vm.tabs[tabIndex].content[entryIndex].content }
+                locals: {
+                    content: vm.tabs[tabIndex].content[entryIndex].content
+                }
             });
         }
+
+
     }
 
 })();
