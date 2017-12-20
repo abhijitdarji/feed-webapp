@@ -2,4 +2,4 @@
 RSS feed web app
 RSS reader web application. click add to home screen on mobile devices to run it as native application.
 
-## [Demo](http://abhijitdarji.github.io/feed-webapp)
+## [Demo](https://abhijitdarji.github.io/feed-webapp)
