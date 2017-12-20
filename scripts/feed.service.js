@@ -19,7 +19,7 @@
 
     function fetchData(cnt, url) {
       var yqlURL = [
-        "http://query.yahooapis.com/v1/public/yql",
+        "https://query.yahooapis.com/v1/public/yql",
         "?q=" +
           encodeURIComponent(
             "select * from rss(0," + cnt + ") where url='" + url + "'"
