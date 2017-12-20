@@ -1,7 +1,7 @@
 [
     {
         "title": "JohnPapa",
-        "xmlUrl": "http://www.johnpapa.net/feed.xml",
+        "xmlUrl": "http://feeds.feedburner.com/johnpapa",
         "htmlUrl": "http://www.johnpapa.net/",
         "content": "",
         "isLoaded": false
@@ -42,16 +42,16 @@
         "isLoaded": false
     },
     {
-        "title": "AngularJS",
-        "xmlUrl": "http://blog.angularjs.org/feeds/posts/default",
-        "htmlUrl": "http://angularjs.blogspot.com/",
+        "title": "Angular",
+        "xmlUrl": "https://blog.angular.io/feed",
+        "htmlUrl": "https://blog.angular.io/",
         "content": "",
         "isLoaded": false
     },
     {
         "title": "GoogleDev",
-        "xmlUrl": "http://code.google.com/feeds/updates.xml",
-        "htmlUrl": "http://googledevelopers.blogspot.com/",
+        "xmlUrl": "http://feeds.feedburner.com/GDBcode",
+        "htmlUrl": "https://developers.googleblog.com/",
         "content": "",
         "isLoaded": false
     },
@@ -70,9 +70,24 @@
         "isLoaded": false
     },
     {
-        "title": "MicosoftDev",
-        "xmlUrl": "http://sxp.microsoft.com/feeds/3.0/devblogs",
-        "htmlUrl": "",
+        "title": "VisualStudio .Net",
+        "xmlUrl": "https://blogs.msdn.microsoft.com/visualstudio/feed/",
+        "htmlUrl": "https://blogs.msdn.microsoft.com/visualstudio/tag/net/",
+        "content": "",
+        "isLoaded": false
+    },
+    {
+        "title": "WebDev .Net",
+        "xmlUrl": "https://blogs.msdn.microsoft.com/webdev/feed/",
+        "htmlUrl": "https://blogs.msdn.microsoft.com/webdev/",
+        "content": "",
+        "isLoaded": false
+    }
+    ,
+    {
+        "title": "DotNet",
+        "xmlUrl": "https://blogs.msdn.microsoft.com/dotnet/feed/",
+        "htmlUrl": "https://blogs.msdn.microsoft.com/dotnet/",
         "content": "",
         "isLoaded": false
     }
