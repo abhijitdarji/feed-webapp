@@ -50,114 +50,117 @@
                 <md-icon md-font-icon>menu</md-icon>
             </md-button>
             <h2>
-                <span>Feed WebApp <md-icon md-font-icon style="color:orange;">rss_feed</md-icon>
+                <span>Feed WebApp
+                    <md-icon md-font-icon style="color:orange;">rss_feed</md-icon>
                 </span>
             </h2>
-    <span flex></span>
-    <md-button class="md-icon-button" aria-label="list" ng-click="vm.mode='list'">
-        <md-icon md-font-icon>list</md-icon>
-    </md-button>
-    <md-button class="md-icon-button" aria-label="tab" ng-click="vm.mode='tab'">
-        <md-icon md-font-icon>tab</md-icon>
-    </md-button>
-    </div>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="list" ng-click="vm.mode='list'">
+                <md-icon md-font-icon>list</md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="tab" ng-click="vm.mode='tab'">
+                <md-icon md-font-icon>tab</md-icon>
+            </md-button>
+        </div>
     </md-toolbar>
 
-<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" ng-if="vm.mode=='list'">
-    <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Feeds</h1>
-    </md-toolbar>
-    <md-content layout-margin>
-        <md-list flex>
-            <md-list-item ng-repeat-start="tab in vm.tabs" ng-click="vm.loadData($index)">
-                <div class="md-body-1">
-                    <md-icon md-font-icon class="md-subhead">rss_feed</md-icon>{{tab.title}}</div>
-            </md-list-item>
-            <md-divider ng-repeat-end></md-divider>
-        </md-list>
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" ng-if="vm.mode=='list'">
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Feeds</h1>
+        </md-toolbar>
+        <md-content layout-margin>
+            <md-list flex>
+                <md-list-item ng-repeat-start="tab in vm.tabs" ng-click="vm.loadData($index)">
+                    <div class="md-body-1">
+                        <md-icon md-font-icon class="md-subhead">rss_feed</md-icon>{{tab.title}}</div>
+                </md-list-item>
+                <md-divider ng-repeat-end></md-divider>
+            </md-list>
+        </md-content>
+    </md-sidenav>
+
+    <md-content id="tabs" flex ng-if="vm.mode=='tab'">
+        <md-tabs md-dynamic-height md-selected="vm.selectedIndex" md-border-bottom>
+            <md-tab ng-repeat="tab in vm.tabs" ng-disabled="tab.disabled" label="{{tab.title}}" md-on-select="vm.loadData($index)">
+                <div ng-hide="!tab.isLoaded" class="demo-tab">
+                    <ul>
+                        <li ng-repeat="feed in tab.content">
+                            <h5>
+                                <a class="md-subhead" href="{{feed.link}}">{{feed.title}}</a>
+                            </h5>
+                            <p class="md-body-1" ng-bind-html="vm.trustAsHtml(feed.snippet)"></p>
+                            <span class="md-caption">{{feed.pubDate | customDate : 'mediumDate' }}</span>
+                            <md-button class="md-accent" ng-click="vm.showDialog($parent.$index, $index)">More..</md-button>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-hide="tab.isLoaded">
+                    <h3>{{vm.msgLoading}}</h3>
+                </div>
+            </md-tab>
+        </md-tabs>
     </md-content>
-</md-sidenav>
-
-<md-content id="tabs" flex ng-if="vm.mode=='tab'">
-    <md-tabs md-dynamic-height md-selected="vm.selectedIndex" md-border-bottom>
-        <md-tab ng-repeat="tab in vm.tabs" ng-disabled="tab.disabled" label="{{tab.title}}" md-on-select="vm.loadData($index)">
-            <div ng-hide="!tab.isLoaded" class="demo-tab">
-                <ul>
-                    <li ng-repeat="feed in tab.content">
-                        <h5><a class="md-subhead" href="{{feed.link}}">{{feed.title}}</a></h5>
-                        <p class="md-body-1" ng-bind-html="feed.contentSnippet"></p>
-                        <span class="md-caption">{{feed.publishedDate | customDate : 'mediumDate' }}</span>
-                        <md-button class="md-accent" ng-click="vm.showDialog($parent.$index, $index)">More..</md-button>
-                    </li>
-                </ul>
-            </div>
-            <div ng-hide="tab.isLoaded">
-                <h3>{{vm.msgLoading}}</h3>
-            </div>
-        </md-tab>
-    </md-tabs>
-</md-content>
 
 
-<md-content id="list" flex layout-padding ng-if="vm.mode=='list'">
-    <div ng-hide="!vm.tabs[vm.selectedIndex].isLoaded">
-        <h3>{{vm.tabs[vm.selectedIndex].title}}</h3>
-        <div class="md-whiteframe-1dp" ng-repeat-start="feed in vm.tabs[vm.selectedIndex].content" ng-click="vm.selectedItem = (vm.selectedItem==null)? $index: null"
-            ng-class="{'selected' : vm.selectedItem == $index}">
-            <md-content layout-padding>
-                <div layout="column">
-                    <div flex>
-                        <div layout="row">
-                            <div flex>
-                                <span class="md-caption">{{feed.publishedDate | customDate : 'mediumDate' }} {{feed.author}}</span>
-                            </div>
-                            <div>
-                                <a href="{{feed.link}}" target="_blank">
-                                    <md-icon md-font-icon class="md-subhead">launch</md-icon>
-                                </a>
+    <md-content id="list" flex layout-padding ng-if="vm.mode=='list'">
+        <div ng-hide="!vm.tabs[vm.selectedIndex].isLoaded">
+            <h3>{{vm.tabs[vm.selectedIndex].title}}</h3>
+            <div class="md-whiteframe-1dp" ng-repeat-start="feed in vm.tabs[vm.selectedIndex].content" ng-click="vm.selectedItem = (vm.selectedItem==null)? $index: null"
+                ng-class="{'selected' : vm.selectedItem == $index}">
+                <md-content layout-padding>
+                    <div layout="column">
+                        <div flex>
+                            <div layout="row">
+                                <div flex>
+                                    <span class="md-caption">{{feed.pubDate | customDate : 'mediumDate' }} {{feed.creator}}</span>
+                                </div>
+                                <div>
+                                    <a href="{{feed.link}}" target="_blank">
+                                        <md-icon md-font-icon class="md-subhead">launch</md-icon>
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                        <div flex>
+                            <h5>{{feed.title}}</h5>
+                            <p class="md-body-1" ng-bind-html="vm.trustAsHtml(feed.snippet)"></p>
+                        </div>
+                        <div flex>
+                            <md-chips ng-model="feed.category" readonly="true">
+                            </md-chips>
+                        </div>
                     </div>
-                    <div flex>
-                        <h5>{{feed.title}}</h5>
-                        <p class="md-body-1" ng-bind-html="feed.contentSnippet"></p>
+                </md-content>
+            </div>
+            <md-divider></md-divider>
+            <div class="md-whiteframe-1dp fade" ng-if="vm.selectedItem == $index">
+                <md-content layout-padding>
+                    <div layout="column" ng-bind-html="vm.trustAsHtml(feed.encoded)">
                     </div>
-                    <div flex>
-                        <md-chips ng-model="feed.categories" readonly="true">
-                        </md-chips>
-                    </div>
-                </div>
-            </md-content>
+                </md-content>
+            </div>
+            <br ng-repeat-end>
         </div>
-        <md-divider></md-divider>
-        <div class="md-whiteframe-1dp fade" ng-if="vm.selectedItem == $index">
-            <md-content layout-padding>
-                <div layout="column" ng-bind-html="feed.content">
-                </div>
-            </md-content>
+        <div ng-hide="vm.tabs[vm.selectedIndex].isLoaded">
+            <h3>{{vm.msgLoading}}</h3>
         </div>
-        <br ng-repeat-end>
-    </div>
-    <div ng-hide="vm.tabs[vm.selectedIndex].isLoaded">
-        <h3>{{vm.msgLoading}}</h3>
-    </div>
-</md-content>
+    </md-content>
 
-<!-- Angular Material requires Angular.js Libraries -->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.min.js"></script>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.min.js"></script>
 
-<!-- Angular Material Library -->
-<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
-<!-- Feed App scripts -->
-<script src="scripts/feed.app.module.js"></script>
-<script src="scripts/feed.service.js"></script>
-<script src="scripts/feed.controller.js"></script>
-<script src="scripts/feed.filter.js"></script>
+    <!-- Feed App scripts -->
+    <script src="scripts/feed.app.module.js"></script>
+    <script src="scripts/feed.service.js"></script>
+    <script src="scripts/feed.controller.js"></script>
+    <script src="scripts/feed.filter.js"></script>
 
 </body>
 
